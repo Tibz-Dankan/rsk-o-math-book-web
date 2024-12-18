@@ -8,8 +8,6 @@ class ConvertAPI {
     outputBase,
   }: TConvertInput) => {
     const response = await fetch(`${serverURL}/api/v1/rootstock-o-level-math`, {
-      // const response = await fetch(`${serverURL}/rootstock-o-level-math`, {
-      // const response = await fetch(`${serverURL}/graphql`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

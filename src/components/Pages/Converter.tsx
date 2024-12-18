@@ -15,7 +15,7 @@ export const Converter: React.FC = () => {
 
   const { isPending, mutate } = useMutation({
     mutationFn: convertAPI.post,
-    onSuccess: async (response: any) => {
+    onSuccess: (response: any) => {
       console.log("response: ", response);
     },
     onError: (error: any) => {
@@ -49,11 +49,9 @@ export const Converter: React.FC = () => {
       try {
         values.inputBase = inputBaseObj?.number.toString()!;
         values.outputBase = outputBaseObj?.number.toString()!;
-        // values.walletToCharge = walletToChargeValue;
 
         console.log("values:", values);
 
-        // mutate(values);
         mutate({
           inputBase: values.inputBase,
           inputNumber: values.inputNumber,

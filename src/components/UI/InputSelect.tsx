@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, ChangeEvent } from "react";
+import React, { Fragment, ChangeEvent } from "react";
 import { TriangleDownIcon } from "./Icons/TriangleDownIcon";
 
 interface InputSelectProps extends React.HTMLAttributes<HTMLSelectElement> {
