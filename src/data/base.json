@@ -1,0 +1,19 @@
+{
+  "bases": [
+    { "name": "Binary", "number": 2 },
+    { "name": "Ternary", "number": 3 },
+    { "name": "Quaternary", "number": 4 },
+    { "name": "Quinary", "number": 5 },
+    { "name": "Senary", "number": 6 },
+    { "name": "Septenary", "number": 7 },
+    { "name": "Octal", "number": 8 },
+    { "name": "Nonary", "number": 9 },
+    { "name": "Decimal", "number": 10 },
+    { "name": "Undecimal", "number": 11 },
+    { "name": "Duodecimal", "number": 12 },
+    { "name": "Hexadecimal", "number": 16 },
+    { "name": "Vigesimal", "number": 20 },
+    { "name": "Sexagesimal", "number": 60 },
+    { "name": "Base 56", "number": 56 }
+  ]
+}
