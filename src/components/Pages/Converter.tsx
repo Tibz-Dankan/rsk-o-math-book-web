@@ -93,7 +93,7 @@ export const Converter: React.FC = () => {
 
   return (
     <Fragment>
-      <div className="flex flex-col items-center gap-4 min-h-[100vh]">
+      <div className="flex flex-col items-center gap-4 min-h-[100vh] pb-24">
         <header
           className="w-full flex items-center justify-center border-b-[1px]
          border-gray-300 py-6"
