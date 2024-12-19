@@ -1,4 +1,4 @@
-import React, { Fragment, ChangeEvent } from "react";
+import React, { Fragment, ChangeEvent, useEffect } from "react";
 import { TriangleDownIcon } from "./Icons/TriangleDownIcon";
 
 interface InputSelectProps extends React.HTMLAttributes<HTMLSelectElement> {
@@ -13,11 +13,11 @@ interface InputSelectProps extends React.HTMLAttributes<HTMLSelectElement> {
 export const InputSelect: React.FC<InputSelectProps> = (props) => {
   const formik = props.formik;
   const options = props.options;
-  // const hasDefaultOption: boolean = !!props.defaultOption;
-  // const defaultOption = hasDefaultOption ? props.defaultOption : "";
+  const hasDefaultOption: boolean = !!props.defaultOption;
+  const defaultOption = hasDefaultOption ? props.defaultOption : "";
   const name = props.name;
   const label = props.label ? props.label : "";
-  // const hasSelectedValue: boolean = !!formik.values[`${name}`];
+  const hasSelectedValue: boolean = !!formik.values[`${name}`];
 
   const hasError = formik.errors[`${name}`] && formik.touched[`${name}`];
 
@@ -26,31 +26,21 @@ export const InputSelect: React.FC<InputSelectProps> = (props) => {
     props.onChange(event);
   };
 
-  // useEffect(() => {
-  //   const setDefaultValueHandler = () => {
-  //     if (hasSelectedValue) return;
+  useEffect(() => {
+    const setDefaultValueHandler = () => {
+      if (hasSelectedValue) return;
 
-  //     if (hasDefaultOption) {
-  //       formik.values[`${name}`] = defaultOption!;
-  //       return;
-  //     }
-  //     formik.values[`${name}`] = options[0];
-  //   };
+      if (hasDefaultOption) {
+        formik.values[`${name}`] = defaultOption!;
+        return;
+      }
+      formik.values[`${name}`] = options[0];
+    };
 
-  //   setDefaultValueHandler();
+    setDefaultValueHandler();
 
-  //   return () => {};
-  // }, [hasSelectedValue, defaultOption]);
-
-  const noValueSelected =
-    formik.values[`${name}`] === null ||
-    formik.values[`${name}`] === "" ||
-    formik.values[`${name}`] === 0;
-
-  // Set first element of options list as the default value
-  formik.values[`${name}`] = noValueSelected
-    ? options[0]
-    : formik.values[`${name}`];
+    return () => {};
+  }, [hasSelectedValue, defaultOption]);
 
   return (
     <Fragment>

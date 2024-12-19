@@ -1,7 +1,11 @@
-import { TConvertInput as ConvertInput } from "./convert";
+import {
+  TConvertInput as ConvertInput,
+  TConvertResponse as ConvertResponse,
+} from "./convert";
 
 declare global {
   type TConvertInput = ConvertInput;
+  type TConvertResponse = ConvertResponse;
 
   type ApiResponse<T> = {
     data: T;

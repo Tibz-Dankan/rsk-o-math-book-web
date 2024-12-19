@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useMutation } from "@tanstack/react-query";
@@ -9,17 +9,26 @@ import { convertAPI } from "../../API/convert";
 import { InputSelect } from "../UI/InputSelect";
 import { InputTextArea } from "../UI/InputTextArea";
 import baseJson from "../../data/base.json";
+import { ResultCard } from "../UI/ResultCard";
 
 export const Converter: React.FC = () => {
   const baseNumList = baseJson.bases;
+  const [showResults, setShowResults] = useState(false);
+  const [results, setResults] = useState<TConvertResponse>();
+  const [showError, setShowError] = useState(false);
+  const [error, setError] = useState(false);
 
   const { isPending, mutate } = useMutation({
     mutationFn: convertAPI.post,
     onSuccess: (response: any) => {
       console.log("response: ", response);
+      setShowResults(() => true);
+      setResults(response);
     },
     onError: (error: any) => {
       console.log("error message: ", error.message);
+      setShowError(() => true);
+      setError(() => error.message);
     },
   });
 
@@ -47,6 +56,9 @@ export const Converter: React.FC = () => {
         : "0x0000000000000000000000000000000000000000";
 
       try {
+        setShowResults(() => false);
+        setShowError(() => false);
+
         values.inputBase = inputBaseObj?.number.toString()!;
         values.outputBase = outputBaseObj?.number.toString()!;
 
@@ -59,9 +71,11 @@ export const Converter: React.FC = () => {
           walletToCharge: walletToChargeValue,
         });
       } catch (err: any) {
+        console.log("Error:", err);
         helpers.setStatus({ success: false });
         helpers.setSubmitting(false);
-        console.log("Error:", err);
+        setShowError(() => true);
+        setError(() => err.message);
       }
     },
   });
@@ -88,16 +102,28 @@ export const Converter: React.FC = () => {
           </p>
         </header>
         <main className="w-full flex flex-col items-center mt-8 space-y-8">
-          <div className="w-[90%] sm:w-96s sm:w-[448px]">
+          <div className="w-[90%] sm:w-[448px]">
             <p className="text-center">
               Convert numbers from one base to another using smart contract
               running on the
               <span className="mx-1 text-primary">Rootstock</span>blockchain
             </p>
           </div>
+          {showResults && (
+            <div className="w-[90%] sm:w-96s sm:w-[448px]">
+              <ResultCard
+                walletToCharge={results?.walletToCharge!}
+                inputNumber={results?.inputNumber!}
+                inputBase={results?.inputBase!}
+                outputBase={results?.outputBase!}
+                outputHexadecimal={results?.outputHexadecimal!}
+                outputNumber={results?.outputNumber!}
+              />
+            </div>
+          )}
           <form
             onSubmit={formik.handleSubmit}
-            className="flex flex-col gap-0 items-center w-[90%] sm:w-96s sm:w-[448px]
+            className="flex flex-col gap-0 items-center w-[90%] sm:w-[448px]
              p-8 bg-gray-200 rounded-md z-[1]"
           >
             <div className="w-full flex items-center justify-center gap-4">

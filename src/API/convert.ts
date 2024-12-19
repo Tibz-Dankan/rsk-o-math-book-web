@@ -22,13 +22,11 @@ class ConvertAPI {
 
     if (!response.ok) {
       const error = await response.json();
-      console.log("error message: ", error.message);
       throw new Error(error.message);
     }
 
     const data = await response.json();
-    console.log("data:", data);
-    return data;
+    return data.data;
   };
 }
 
