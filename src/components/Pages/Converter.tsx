@@ -2,7 +2,7 @@ import React, { Fragment, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useMutation } from "@tanstack/react-query";
-import { Loader } from "../UI/Loaders/Loader";
+// import { Loader } from "../UI/Loaders/Loader";
 import { InputField } from "../UI/InputField";
 import { Button } from "../UI/Button";
 import { convertAPI } from "../../API/convert";
