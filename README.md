@@ -1,50 +1,76 @@
-# React + TypeScript + Vite
+# ROOTSTOCK O'LEVEL MATH BOOK
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Installation
 
-Currently, two official plugins are available:
+### **1. Prerequisites**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Ensure you have the following installed:
 
-## Expanding the ESLint configuration
+- **Node.js** (Recommended version 18+)
+- **pnpm** (or your preferred package manager like npm or yarn)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+---
 
-- Configure the top-level `parserOptions` property like this:
+### **2. Clone the Repository**
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+Run the following command in your terminal to clone the repository:
+
+```bash
+git clone https://github.com/Tibz-Dankan/rsk-o-math-book-web.git
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+---
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### **3. Navigate to the Project Directory**
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+Change into the project directory:
+
+```bash
+cd rsk-o-math-book-web
 ```
+
+---
+
+### **4. Install Dependencies**
+
+Use `pnpm` to install the required dependencies:
+
+```bash
+pnpm install
+```
+
+---
+
+### **5. Run the Development Server**
+
+Start the Vite development server:
+
+```bash
+pnpm run dev
+```
+
+---
+
+### **6. Open the Application in Your Browser**
+
+The display the local development server URL in the terminal, typically something like:
+
+```
+http://localhost:5173/
+```
+
+Open this URL in your web browser to view the application.
+
+---
+
+### **7. Optional: Build for Production**
+
+If you want to build the application for production, run:
+
+```bash
+pnpm run build
+```
+
+The output files will be in the `dist` directory.
+
+---
