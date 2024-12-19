@@ -17,14 +17,14 @@ export const ResultCard: React.FC<TConvertResponse> = (props) => {
       rounded-md p-4 text-gray-600"
     >
       <div className="w-full flex flex-col items-start justify-center gap-2">
-        <span className="text-lg font-semibolds text-gray-800">From Base</span>
+        <span className="text-lg text-gray-800">From Base</span>
         <span>
           {inputBaseValue} {`(base${props.inputBase})`}
         </span>
         <span>{props.inputNumber}</span>
       </div>
       <div className="w-full flex flex-col items-start justify-center gap-2">
-        <span className="text-lg font-semibolds text-gray-800">To Base</span>
+        <span className="text-lg text-gray-800">To Base</span>
         <span>
           {outputBaseValue} {`(base${props.outputBase})`}
         </span>

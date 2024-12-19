@@ -11,11 +11,14 @@ export const Loader: React.FC<LoaderProps> = (props) => {
     <Fragment>
       <div
         className={twMerge(
-          `w-full flex items-center justify-center`,
+          `w-full flex items-center justify-center bg-green-400`,
           props.className
         )}
       >
-        <svg className="animate-spin h-5 w-5 mr-3" viewBox="0 0 24 24"></svg>
+        <svg
+          className="animate-spin h-5 w-5 mr-3 text-gray-100"
+          viewBox="0 0 24 24"
+        ></svg>
         <span className="text-gray-100 absolute top-2 left-12 font-bold">
           {props?.label && props.label + "..."}
         </span>

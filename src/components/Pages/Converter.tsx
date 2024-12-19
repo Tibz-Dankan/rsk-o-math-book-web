@@ -167,7 +167,8 @@ export const Converter: React.FC = () => {
               label={
                 <>
                   {!isPending && <span>Convert</span>}
-                  {isPending && <Loader label="Processing..." className="" />}
+                  {/* {!isPending && <Loader label="Processing..." className="" />} */}
+                  {isPending && <span>Processing...</span>}
                 </>
               }
               type="submit"
