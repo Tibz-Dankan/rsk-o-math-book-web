@@ -103,6 +103,12 @@ export const Converter: React.FC = () => {
           </p>
         </header>
         <main className="w-full flex flex-col items-center mt-8 space-y-8">
+          <div className="w-[90%] sm:w-[448px] space-y-4">
+            <h1 className="text-center text-2xl">Topic 1: Bases</h1>
+            <div>
+              <img src={"transistor.png"} className="rounded-md" />
+            </div>
+          </div>
           <div className="w-[90%] sm:w-[448px]">
             <p className="text-center">
               Convert numbers from one base to another using smart contract
