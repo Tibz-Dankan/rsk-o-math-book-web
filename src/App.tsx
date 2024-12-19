@@ -1,7 +1,8 @@
 import React from "react";
 import "./App.css";
-import { Converter } from "./components/Pages/Converter";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Converter } from "./components/Pages/Converter";
+import { MoreTopics } from "./components/Pages/MoreTopics";
 
 const App: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ const App: React.FC = () => {
             path="/currency"
             element={<div>current conversion page</div>}
           />
+          <Route path="/more-topics" element={<MoreTopics />} />
         </Routes>
       </BrowserRouter>
     </div>

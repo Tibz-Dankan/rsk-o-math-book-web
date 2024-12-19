@@ -11,6 +11,7 @@ import { InputTextArea } from "../UI/InputTextArea";
 import baseJson from "../../data/base.json";
 import { ResultCard } from "../UI/ResultCard";
 import { ErrorCard } from "../UI/ErrorCard";
+import { Link } from "react-router-dom";
 
 export const Converter: React.FC = () => {
   const baseNumList = baseJson.bases;
@@ -93,7 +94,7 @@ export const Converter: React.FC = () => {
 
   return (
     <Fragment>
-      <div className="flex flex-col items-center gap-4 min-h-[100vh] pb-24">
+      <div className="flex flex-col items-center gap-4 min-h-[100vh]">
         <header
           className="w-full flex items-center justify-center border-b-[1px]
          border-gray-300 py-6"
@@ -183,6 +184,14 @@ export const Converter: React.FC = () => {
             />
           </form>
         </main>
+        <footer
+          className="w-full border-t-[1px] text-gray-400 mt-24 flex 
+          items-center justify-center py-8"
+        >
+          <Link to="/more-topics">
+            <Button label={"Next Page"} type={"button"} className="w-28" />
+          </Link>
+        </footer>
       </div>
     </Fragment>
   );
