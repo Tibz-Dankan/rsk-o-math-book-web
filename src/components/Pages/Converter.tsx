@@ -10,13 +10,14 @@ import { InputSelect } from "../UI/InputSelect";
 import { InputTextArea } from "../UI/InputTextArea";
 import baseJson from "../../data/base.json";
 import { ResultCard } from "../UI/ResultCard";
+import { ErrorCard } from "../UI/ErrorCard";
 
 export const Converter: React.FC = () => {
   const baseNumList = baseJson.bases;
   const [showResults, setShowResults] = useState(false);
   const [results, setResults] = useState<TConvertResponse>();
   const [showError, setShowError] = useState(false);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState("");
 
   const { isPending, mutate } = useMutation({
     mutationFn: convertAPI.post,
@@ -119,6 +120,11 @@ export const Converter: React.FC = () => {
                 outputHexadecimal={results?.outputHexadecimal!}
                 outputNumber={results?.outputNumber!}
               />
+            </div>
+          )}
+          {showError && (
+            <div className="w-[90%] sm:w-96s sm:w-[448px]">
+              <ErrorCard message={error} />
             </div>
           )}
           <form
