@@ -7,7 +7,19 @@
 Ensure you have the following installed:
 
 - **Node.js** (Recommended version 18+)
-- **pnpm** (or your preferred package manager like npm or yarn)
+- **pnpm**
+
+  **If you don't have pnpm, install it using the command below:**
+
+  ```bash
+  npm install -g pnpm
+  ```
+
+  **Verify pnpm installation:**
+
+  ```bash
+  pnpm -v
+  ```
 
 ---
 
